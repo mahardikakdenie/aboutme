@@ -1,0 +1,3 @@
+.scale-icon__hover:hover{
+    transition: scale(1.1) !important;
+}

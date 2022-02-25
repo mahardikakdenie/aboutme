@@ -1,3 +1,2 @@
-.text-customize {
-    font-size: 4.125rem;
-}
+@import "_text.css";
+@import "_scale.css";

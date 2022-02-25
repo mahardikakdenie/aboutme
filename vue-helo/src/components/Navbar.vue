@@ -2,8 +2,8 @@
   <nav
     class="bg-blue-100 border-pink-100 rounded-lg pt-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800"
   >
-    <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <div @click="navigate('/')" class="flex cursor-pointer">
+    <div class="container flex justify-center items-center mx-auto">
+      <!-- <div @click="navigate('/')" class="flex cursor-pointer">
         <svg
           class="mr-3 h-10"
           viewBox="0 0 52 72"
@@ -27,7 +27,7 @@
           class="self-center text-lg font-semibold whitespace-nowrap dark:text-white"
           >Mahardika Kessuma Denie</span
         >
-      </div>
+      </div> -->
       <button
         data-collapse-toggle="mobile-menu"
         type="button"
@@ -61,16 +61,19 @@
           ></path>
         </svg>
       </button>
-      <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+      <div
+        class="hidden flex pt-10 justify-center w-full md:block"
+        id="mobile-menu"
+      >
         <ul
-          class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
+          class="flex flex-col justify-center mt-4 md:flex-row md:space-x-20 md:mt-0 md:text-sm md:font-medium"
         >
           <li v-for="(item, i) in dataNavbar" :key="i">
             <router-link
               :to="item.link"
               :class="`${
                 route.name === item.text ? 'nav__active' : ''
-              } block cursor-pointer font-mono text-black-700 text-lg cursor__hover font-bold py-2 pr-4 pl-3 rounded md:bg-transparent hover:text-grey-900 md:text-grey-1700 md:p-0 dark:text-white`"
+              } block cursor-pointer font-mono text-pink-600 text-2xl cursor__hover font-bold py-2 pr-4 pl-3 rounded md:bg-transparent hover:text-grey-900  md:p-0 dark:text-white`"
               >{{ item.text }}</router-link
             >
           </li>
@@ -85,7 +88,6 @@ import { reactive } from "@vue/reactivity";
 import { useRoute, useRouter } from "vue-router";
 import { onMounted } from "@vue/runtime-core";
 export default {
-  data: () => ({}),
   setup() {
     // start Data
     const dataNavbar = reactive([
@@ -98,12 +100,12 @@ export default {
         link: "/about",
       },
       {
-        text: "Experience",
-        link: "/",
+        text: "Skill",
+        link: "/skill",
       },
       {
         text: "Contact",
-        link: "/",
+        link: "/contact",
       },
     ]);
     // end data

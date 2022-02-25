@@ -1,9 +1,9 @@
 <template>
   <section id="welcome">
     <div class="py-20">
-      <div class="flex items-center flex-col container mx-auto px-6">
+      <div class="flex items-center flex-col container mx-auto">
         <img
-          class="mb-3 w-24 h-35 rounded-xl shadow-lg"
+          class="mb-3 w-1/4 rounded-full shadow-lg"
           :src="require('@/assets/author.jpg')"
           alt="Bonnie image"
         />
@@ -13,9 +13,10 @@
         <h3 class="text-4xl mb-8 text-gray-900">{{ job }}</h3>
 
         <button
-          class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider"
+          @click="gotoAboutPage('/about')"
+          class="py-2.5 w-1/4 rounded-xl px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
         >
-          About
+          <div class="font-mono text-lg">About</div>
         </button>
       </div>
     </div>
@@ -24,6 +25,7 @@
 
 <script>
 import { computed, ref } from "@vue/reactivity";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     const name = ref("Mahardika Kessuma Denie");
@@ -32,10 +34,18 @@ export default {
       return name.value;
     });
 
+    const router = useRouter();
+
+    const gotoAboutPage = (link) => {
+      router.push(link);
+    };
+
     return {
       name,
       nameTransisition,
       job,
+      gotoAboutPage,
+      router,
     };
   },
 };
